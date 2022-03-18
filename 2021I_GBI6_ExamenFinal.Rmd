@@ -112,21 +112,21 @@ df_long
 library(sjPlot)
 library(sjmisc)
 library(dplyr)  
-df_long %>%
-  group_by(dataset, gen) %>%
-  select(dataset:expresion_level) %>%
-  descr()
+agrupt <- df_long %>% group_by(dataset,gen)
+agrupt <- descr(x=BRCA, out="browser",
+                file="results/mRNA_expr_summary.doc")
 ```
 
 ### [0.5 PUNTOS] 1.6 Interprete los resultados de la tabla resultante de la sección 1.5. 
 
 
 ```{tex}
-# Escriba aquí su interpretación 
+#La tabla resultante del archivo <mRNA_expr_summary.doc >, representa un resumen
+#de los datos estadísticos de manera agrupada.
+#Tras analizar los valores obtenidos se puede determinar que los cánceres de 
+#
 
 ```
-
-
 
 ## **Pregunta 2 VISUALIZACION DE DATOS  [5 PUNTOS]**
 
