@@ -90,7 +90,12 @@ df <- read_csv("./data/mRNA_expr.csv")
 ### [1 PUNTO] 1.3 Cree una función de nombre ```long_df``` para transformar la data ```df``` de la forma wide a long.
 
 ```{r funcion_long}
-
+long_df <- function(df) {
+  df$dataset <- as.factor(df$bcr_patient_barcode)
+  df$dataset <- as.factor(df$dataset)
+  library("tidyr")
+  long <- gather(df, gen, expresion_level, -c(bcr_patient_barcode, dataset))
+  }
 
 ```
 
