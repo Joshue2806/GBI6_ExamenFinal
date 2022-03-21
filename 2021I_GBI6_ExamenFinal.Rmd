@@ -119,13 +119,16 @@ descr(agrup, out = "viewer", encoding = "UTF-8",
 ```
 
 ### [0.5 PUNTOS] 1.6 Interprete los resultados de la tabla resultante de la sección 1.5. 
-
+Tipos de cáncer y data proveniente de: 
+[TGA CÁNCER])https://gdac.broadinstitute.org/)
 
 ```{tex}
 #La tabla resultante del archivo <mRNA_expr_summary.doc >, representa un resumen
-#de los datos estadísticos de manera agrupada.
-#Tras analizar los valores obtenidos se puede determinar que los cánceres de 
-#
+#de los datos estadísticos de manera agrupada, enfocados en la expresión de los
+#genes de los distintos tipos de cánceres
+#Tras analizar los valores obtenidos de la media y la curtosis, se puede 
+#determinar que los genes de MUC1 (media= 1.74) y ESR1 (media= 1.09), son los que
+#mayor expresión tiene, y el menor gen que se expresa es el GATA3 (meadia= -2.0)
 
 ```
 
@@ -142,9 +145,8 @@ tcga_boxplots <- function(dataset){
   ggplot(df_long, aes(x = gen, y = expresion_level, 
                       colour = gen)) + 
     geom_point(alpha = 0.3, position = "jitter") + 
-    geom_boxplot(alpha = 0, colour = "black") + 
-    ggtitle(df_long$dataset)
-         }
+    geom_boxplot(alpha = 0, colour = "black") 
+  }
 
 ```
 
@@ -180,22 +182,33 @@ plot3
 ### [1 PUNTO] 2.4 Escriba la función ```reg_gen_expression```, con el parámetro ```gen```. En este caso la función visualizará una gráfica de nube de puntos (geom_point) y una regresión por tipo de "dataset". La gráfica será de comparación de gen1 con gen2; por ejemplo en el eje "x" ```GATA3``` y en el eje "y"" ```FN1```.  
 
 ```{r reg_gen_exp}
-# Escriba aquí su función reg_gen_expression
+
+reg_gen_expression <- function(gen){
+  xgen=df_long$gen
+  ygen=df_long$gen
+  x <- df_long %>% filter(gen[1] == xgen)
+  y <- df_long %>% filter(gen[2] == ygen)
+  #Combinación
+  z <- cbind(x, y) 
+  w <- tibble("dataset"=z[,1],"genx"=z[,2],"geny"=z[,5])
+  ggplot(w, aes(x = genx, y = geny, colour = dataset)) + 
+    geom_point(position = position_jitter())
+  }
 
 
 ```
 
-
 ### [0.5 PUNTOS] 2.5. Utilizando la función ```lapply()``` genera la lista ```reg_genplots``` con las gráficas para cada par de genes posibles. Recuerde que tiene 7 tipos de genes, se debe tener todas las combinaciones posibles por pares de genes (combinatoria sin repetición).
 ```{r list_regplots}
-# Escriba el código para generar la lista. 
+
 
 ```
 
 
 ### [0.5 PUNTOS] 2.6. Guarde en el subdirectorio ```result``` el onceavo plot de la lista ```reg_genplots``` con el nombre ```regresion11.pdf```. La definición de a figura debe ser de 300dpi. 
 ```{r reg11}
-# Escriba el código para guardar el onceavo plot. 
+
+
 
 ```
 
@@ -203,7 +216,7 @@ plot3
 ### [1 PUNTO] 2.7. Interprete los resultados de las figuras ```boxplot3.png``` y ```regresion11.pdf```.
 
 ```{tex}
-# Esciba aquí su intepretación
+
 
 ```
 
