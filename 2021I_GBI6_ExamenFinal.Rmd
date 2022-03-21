@@ -222,6 +222,18 @@ plot11
 ### [1 PUNTO] 2.7. Interprete los resultados de las figuras ```boxplot3.png``` y ```regresion11.pdf```.
 
 ```{tex}
+#bloxplot3.pnf
+
+#En la figura de boxplot3.png, laca gráfica de caja de bigotes muestra en los 
+#genes de mayor expresión (ESR1 y MUC1) y en los de menor expresión (GATA3) una
+#distribución asimétrica; aún más, el boxplot corrobora que la expresión de los
+#genes ESR1 y MUC1 son los que se expresan en mayor cantidad.
+
+#regresion11.pdf
+
+#Posiblemente a algún error del que debido al tiempo ya no se pudo corregir
+#la gráfica presenta mucho ruido y no permite evidenciar la regresión entre la 
+#combinación de los genes, hasta la última instancia se hizo lo posible.
 
 
 ```
