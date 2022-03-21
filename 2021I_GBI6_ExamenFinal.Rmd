@@ -169,7 +169,9 @@ cancertype_boxplots
 
 ### [0.5 PUNTOS] 2.3 Guarde en el subdirectorio ```result``` el tercer plot de la lista ```cancertype_boxplots``` con el nombre ```boxplot3.png```. La definición de a figura debe ser de 300dpi. 
 ```{r boxplot3}
-
+plot3 <- cancertype_boxplots[[3]] + ggtitle("Cáncer KIRP") 
+ggsave("results/boxplot3.png", dpi = 300)
+plot3
 
 
 ```
