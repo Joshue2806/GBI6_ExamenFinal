@@ -39,4 +39,6 @@ La data utilizada, se encuentra en la carpeta **<_data/_>** en el archivo **<_mR
 
 En la carpeta **<_results/_>** se encuentran los resultados de los ejercicios **1.5**, **2.3** y **2.6**.
 
+
+Fue un honor servir a su lado...
 <img src="https://c.tenor.com/_ZuwTV9BLKsAAAAC/titanic-titanic-orchestra.gif" width="350">
