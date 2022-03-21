@@ -101,7 +101,7 @@ long_df <- function(df) {
 La tabla resultante tendrá tres columnas: ```dataset, gen, expresion_level```.  
 ```{r df_long}
 df_long <- long_df(df)
-df_long <- long[,-1]
+df_long <- df_long[,-1]
 head(df_long, n = 8)
 ```
 
@@ -111,11 +111,9 @@ library(sjPlot)
 library(sjmisc)
 library(dplyr)
 
-agrup <- df_long %>% group_by(gen) %>% mutate(row = row_number()) %>%
- tidyr::pivot_wider(names_from = gen, values_from = expresion_level) %>%
-  select(-row)
-descr(agrup, out = "viewer", encoding = "UTF-8",
-      file ="results/mRNA_expr_summary.doc") 
+agrup <- df_long %>% group_by(dataset,gen)
+descr(x=agrup, out="browser", file="results/mRNA_expr_summary.doc")
+
 ```
 
 ### [0.5 PUNTOS] 1.6 Interprete los resultados de la tabla resultante de la sección 1.5. 
